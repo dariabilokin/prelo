@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Card from "../../components/card/Card";
 import { getAllItems } from "../../lib/item";
 // import couchPic from "../public/images/couch.webp";
 
@@ -18,36 +19,15 @@ const Items = ({ items }) => {
   const itemsList = [items[0], items[0], items[0], items[0], items[0]];
   return (
     <>
-      <div className="container bg-neutral py-20">
-        <h1 className="text-5xl py-10 text-center font-bold text-danger">
+      <div className="container bg-white py-20">
+        <h1 className="text-5xl py-10 text-center font-bold text-danger mb-10">
           Items
         </h1>
 
         <div className="px-7 sm:px-10 md:px-20">
-          <div className="grid md:grid-cols-3  grid-col-2 sm:gap-5 gap-2">
+          <div className="flex flex-auto flex-row flex-wrap content-center items-center justify-center sm:gap-5 md:gap-20 xl:gap-30x gap-3">
             {itemsList.map((item) => (
-              <div
-                key={item.id}
-                className="flex flex-col items-start bg-white rounded-2xl"
-              >
-                <div className="">
-                  <Image
-                    src="http://source.unsplash.com/bpg-ngqrPc8"
-                    alt="User profile picture"
-                    width={300}
-                    height={300}
-                    className="w-full h-full top-0 left-0 object-cover rounded-t-2xl "
-                  />
-                </div>
-                <div className="m-3">
-                  <h3 className="text-xl md:text-3xl text-gray-700">
-                    {item.name}
-                  </h3>
-                  <h3 className="text-md md:text-xl font-small text-gray-700">
-                    ${item.price}
-                  </h3>
-                </div>
-              </div>
+              <Card item={item} key={item.id} />
             ))}
           </div>
         </div>
