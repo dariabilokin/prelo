@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Card from "../components/card/Card";
 import Navigation from "../components/navigation/Navigation";
 
 import { getAllUsers } from "../lib/user";
@@ -30,6 +31,28 @@ const Homepage = ({ users }) => {
                   Start Selling
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className=" h-1/2 w-screen bg-white">
+        <div className="py-40 px-20 ">
+          <h3 className="text-center text-3xl font-bold text-secondaryDark mb-10">
+            Our Team
+          </h3>
+          <div className="flex flex-wrap flex-row justify-center gap-10">
+            <Card
+              item={{
+                imgUrl:
+                  "gs://moving-fb4bc.appspot.com/images/team/team-member_Ivory.jpg",
+                name: "Ivy",
+              }}
+            />
+            <div className="text-center">
+              <h3>Voo</h3>
+            </div>
+            <div className="text-center">
+              <h3>Ivory</h3>
             </div>
           </div>
         </div>
