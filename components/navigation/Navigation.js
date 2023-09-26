@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navigation = () => {
   return (
@@ -8,7 +9,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="text-secondaryDark font-bold text-xl">
-              My App
+             <Image scr='icons/logo.png'
+             alt='Prelo Logo'
+             width={80}
+             height={80}
+             className=" "/>
             </Link>
           </div>
           <div className="flex items-center">

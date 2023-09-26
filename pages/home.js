@@ -5,6 +5,10 @@ import Navigation from "../components/navigation/Navigation";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "../lib/firebase";
 import { getAllUsers } from "../lib/user";
+
+import { Quicksand } from 'next/font/google';
+const quicksand = Quicksand({ subsets: ['latin'] });
+
 const Homepage = ({ users }) => {
   return (
     <div>
@@ -12,24 +16,19 @@ const Homepage = ({ users }) => {
         <Navigation />
         <div className="bg-cover bg-bottom h-5/6 w-screen bg-no-repeat bg-[url(../public/images/bg1.jpg)]">
           <div className="backdrop-brightness-50	bg-gray/70 h-5/6 w-screen  items-center flex flex-col">
-            <div className="py-40 px-20 ">
-              <h1 className="text-primaryLight font-bold opacity-100 text-9xl">
-                New Era of
-                <br></br>
-                Garage Sale!
+            <div className=" text-center py-40 px-20 ">
+              <h1 className="text-white font-bold opacity-100 text-6xl">
+               Welcome to Prelo!
               </h1>
 
-              <div className="pt-20">
-                <p className="max-w-xl leading-8 text-white font-medium text-lg">
-                  Empowering a new era of conscious consumerism, one click at a
-                  time! Transforming garage sales into a time-saving,
-                  sustainable online experience, giving new life to preloved
-                  treasures.
+              <div className={quicksand.className}>
+                <p className=" leading-8 mt-10 text-white text-2xl">
+                  The place where preloved treasures find a new home
                 </p>
               </div>
               <div className="pt-10">
-                <button className="text-secondaryDark tracking-wider py-2 px-5 w-auto font-medium text-lg rounded-xl bg-primaryLight  border-primaryLight border-2 hover:bg-primaryDark hover:border-primaryDark">
-                  Start Selling
+                <button className="text-white tracking-wide py-2 px-5 w-auto text-2xl rounded-md bg-primary  hover:bg-primaryLight">
+                  Explore
                 </button>
               </div>
             </div>
@@ -38,7 +37,7 @@ const Homepage = ({ users }) => {
       </div>
       <div className=" h-1/2 w-screen bg-white">
         <div className="py-40 px-20 ">
-          <h3 className="text-center text-3xl font-bold text-secondaryDark mb-10">
+          <h3 className="text-center text-3xl font-bold text-black mb-10">
             Our Team
           </h3>
           <div className="flex flex-row justify-center gap-10">

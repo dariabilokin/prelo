@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     backgroundColor: (theme) => ({
       ...theme("colors"),
-      primary: "#DABF36",
-      primaryLight: "#EDD44D",
+      primary: "#F04F2D",
+      primaryLight: "#ED684C",
       primaryDark: "#BA9C10",
       secondary: "#416463",
       secondaryDark: "#203F3E",
@@ -19,8 +19,8 @@ module.exports = {
       black: "#000",
     }),
     textColor: {
-      primary: "#DABF36",
-      primaryLight: "#EDD44D",
+      primary: "#F04F2D",
+      primaryLight: "#ED684C",
       primaryDark: "#BA9C10",
       secondary: "#416463",
       secondaryDark: "#203F3E",
@@ -29,8 +29,8 @@ module.exports = {
       white: "#f8fafc",
     },
     borderColor: {
-      primary: "#DABF36",
-      primaryLight: "#EDD44D",
+      primary: "#F04F2D",
+      primaryLight: "#ED684C",
       primaryDark: "#BA9C10",
       secondary: "#416463",
       secondaryDark: "#203F3E",
