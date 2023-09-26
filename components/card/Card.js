@@ -9,6 +9,7 @@ const Card = ({ item }) => {
         alt={`Image of ${item.name}`}
         width={300}
         height={300}
+        quality={75}
         className="w-full h-full top-0 left-0 object-cover rounded-t-2xl "
       />
       <div className="m-3 text-center">

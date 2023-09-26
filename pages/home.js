@@ -2,7 +2,8 @@ import Image from "next/image";
 import React from "react";
 import Card from "../components/card/Card";
 import Navigation from "../components/navigation/Navigation";
-
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { storage } from "../lib/firebase";
 import { getAllUsers } from "../lib/user";
 const Homepage = ({ users }) => {
   return (
@@ -40,19 +41,48 @@ const Homepage = ({ users }) => {
           <h3 className="text-center text-3xl font-bold text-secondaryDark mb-10">
             Our Team
           </h3>
-          <div className="flex flex-wrap flex-row justify-center gap-10">
-            <Card
-              item={{
-                imgUrl:
-                  "gs://moving-fb4bc.appspot.com/images/team/team-member_Ivory.jpg",
-                name: "Ivy",
-              }}
-            />
-            <div className="text-center">
-              <h3>Voo</h3>
+          <div className="flex flex-row justify-center gap-10">
+            <div>
+              <div className="rounded-full overflow-hidden">
+                <Image
+                  src="/images/team/Ivory.jpg"
+                  alt="Image of Ivory"
+                  width={200}
+                  height={200}
+                  className="w-full h-full top-0 left-0 object-cover "
+                />
+              </div>
+              <h3 className=" text-secondaryDark font-medium mt-5 text-3xl text-center">
+                Ivory
+              </h3>
             </div>
-            <div className="text-center">
-              <h3>Ivory</h3>
+            <div>
+              <div className="rounded-full overflow-hidden">
+                <Image
+                  src="/images/team/Ivy.png"
+                  alt="Image of Ivory"
+                  width={200}
+                  height={200}
+                  className="w-full h-full top-0 left-0 object-cover "
+                />
+              </div>
+              <h3 className=" text-secondaryDark font-medium mt-5 text-3xl text-center">
+                Ivy
+              </h3>
+            </div>
+            <div>
+              <div className="rounded-full overflow-hidden">
+                <Image
+                  src="/images/team/Voo.png"
+                  alt="Image of Ivory"
+                  width={200}
+                  height={200}
+                  className="w-full h-full top-0 left-0 object-cover "
+                />
+              </div>
+              <h3 className=" text-secondaryDark font-medium mt-5 text-3xl text-center">
+                Voo
+              </h3>
             </div>
           </div>
         </div>
@@ -73,6 +103,17 @@ export const getServerSideProps = async ({ req }) => {
     updatedAt: user.updatedAt.toString(),
     createdAt: user.createdAt.toString(),
   }));
+  // const imageListRef = ref(storage, "images/team/");
+
+  // const allTeam = await listAll(imageListRef)
+  // .then((response) => Promise.all(response.items.map(getDownloadURL)))
+  // .then((urls) => {
+  //   return urls;
+  // })
+  // .catch((error) => {
+  //   console.error('Error getting image URLs:', error);
+  //   return [];
+  // });
 
   return { props: { users: updatedUsers } };
 };

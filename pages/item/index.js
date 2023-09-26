@@ -12,11 +12,13 @@ export const getServerSideProps = async ({ req }) => {
     updatedAt: item.updatedAt.toString(),
     createdAt: item.createdAt.toString(),
   }));
+  console.log('updated items', items);
   return { props: { items: updatedItems } };
 };
 
 const Items = ({ items }) => {
   const itemsList = [items[0], items[0], items[0], items[0], items[0]];
+  console.log('items list', itemsList);
   return (
     <>
       <div className="container bg-white py-20">
@@ -26,8 +28,8 @@ const Items = ({ items }) => {
 
         <div className="px-7 sm:px-10 md:px-20">
           <div className="flex flex-auto flex-row flex-wrap content-center items-center justify-center sm:gap-5 md:gap-20 xl:gap-30x gap-3">
-            {itemsList.map((item) => (
-              <Card item={item} key={item.id} />
+            {itemsList.map((item, index) => (
+              <Card item={item} key={index} />
             ))}
           </div>
         </div>
