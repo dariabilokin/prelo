@@ -13,7 +13,7 @@ const Homepage = ({ users }) => {
   return (
     <div>
       <div className=" h-5/6 w-screen ">
-        <Navigation />
+        <Navigation/>
         <div className="bg-cover bg-bottom h-5/6 w-screen bg-no-repeat bg-[url(../public/images/bg1.jpg)]">
           <div className="backdrop-brightness-50	bg-gray/70 h-5/6 w-screen  items-center flex flex-col">
             <div className=" text-center py-40 px-20 ">
