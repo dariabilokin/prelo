@@ -1,86 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-
+import {
+  Bars3Icon
+} from "@heroicons/react/20/solid";
+import { dynamicSort } from "../../lib/helpers";
+import {clsx} from "clsx";
+import HeaderBar from "./HeaderBar";
 
 const Navigation = () => {
   const { register, handleSubmit, reset } = useForm();
+  const [isOpen, setIsOpen] = useState(false);
+  const categoryOptions = [
+    { name: "apparel", label: "Apparel", value: "apparel" },
+    { name: "kitchen", label: "Kitchen", value: "kitchen" },
+    { name: "books", label: "Books", value: "books" },
+    { name: "tools", label: "Tools", value: "tools" },
+    { name: "cameras", label: "Cameras", value: "cameras" },
+    { name: "homeDecor", label: "Home Decor", value: "homeDecor" },
+    { name: "textiles", label: "Textiles", value: "textiles" },
+    { name: "outdoor", label: "Outdoor", value: "outdoor" },
+  ];
+  console.log("sort ", categoryOptions.sort(dynamicSort('name')));
   return (
-    <nav className="bg-white ">
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center h-16">
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-secondaryDark font-bold text-xl">
-              <Image
-                src="/images/icon.png"
-                alt="Prelo Logo"
-                width={100}
-                height={50}
-                className=""
-              />
+    <div>
+      <HeaderBar/>
+    <nav className="bg-white">
+      <Bars3Icon className='w-6 h-6 text-black'/>
+      <div className="flex items-baseline ml-10 mr-20 space-x-4">
+            <Link
+              href="/home"
+              className="px-3 py-2 text-sm font-medium tracking-wider rounded-md text-secondaryDark hover:secondary hover:underline "
+            >
+              Home
+            </Link>
+            <Link
+              href="/sale"
+              className="px-3 py-2 text-sm font-medium tracking-wider rounded-md text-secondaryDark hover:secondary hover:underline "
+            >
+              Sale
+            </Link>
+            <Link
+              href="/contact"
+              className="px-3 py-2 text-sm font-medium tracking-wider rounded-md text-secondaryDark hover:secondary hover:underline "
+            >
+              Contact
+            </Link>
+            <Link
+              href="/login"
+              className="px-3 py-2 ml-4 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+            >
+              Log In
             </Link>
           </div>
-          <form>
-            <div className="flex  items-center  font-light">
-              <span className="bg-gray-200 border-2  border-gray rounded-l-md">
-                <select className="bg-gray-200 px-4 py-3 h-full w-full border-none focus:outline-none">
-                  <option value="">All Categories</option>
-                  <option value="category1">Category 1</option>
-                  <option value="category2">Category 2</option>
-                  <option value="category3">Category 3</option>
-                </select>
-              </span>
-              <div className="flex flex-shrink-1">
-                <input
-                  type="text"
-                  className="text-lg p-3 h-full w-full border-2 border-gray focus:outline-none"
-                  placeholder="What are you looking for?"
-                />
-              </div>
-              <div className="">
-                <button className="bg-primary rounded-r-md text-white h-full w-full focus:outline-none p-3">
-                  <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />
-                </button>
-              </div>
-            </div>
-          </form>
-          <div className="flex items-center">
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  href="/home"
-                  className="text-secondaryDark tracking-wider font-medium hover:secondary hover:underline px-3 py-2 rounded-md text-sm "
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/sale"
-                  className="text-secondaryDark tracking-wider font-medium hover:secondary hover:underline px-3 py-2 rounded-md text-sm "
-                >
-                  Sale
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-secondaryDark tracking-wider font-medium hover:secondary hover:underline px-3 py-2 rounded-md text-sm "
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-            <div className="flex-shrink-0">
-              <Link
-                href="/login"
-                className="ml-4 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium"
-              >
-                Log In
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
     </nav>
+    </div>
+
   );
 };
 
