@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
-import { storage } from "../lib/firebase";
+import { storage } from "../../../lib/firebase";
 import { v4 } from "uuid";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -26,7 +26,7 @@ const FileUpload = () => {
     listAll(imageListRef).then((response) =>
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
-            console.log('url', url)
+          console.log("url", url);
           setImageList((prev) => [...prev, url]);
         });
       })
@@ -35,18 +35,18 @@ const FileUpload = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("image")} type="file" />
-      <button
-        className="mb-3 rounded-lg border-2 border-primary bg-white py-1 px-2"
-        type="submit"
-      >
-        Upload image
-      </button>
-    </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("image")} type="file" />
+        <button
+          className="px-2 py-1 mb-3 bg-white border-2 rounded-lg border-primary"
+          type="submit"
+        >
+          Upload image
+        </button>
+      </form>
 
-     <div className="bg-gray-100 max-w-lg max-h-full my-10 container rounded-xl p-10">
-        {imageList.map((url, index) => {  
+      <div className="container max-w-lg max-h-full p-10 my-10 bg-gray-100 rounded-xl">
+        {imageList.map((url, index) => {
           return (
             <Image
               key={index}
@@ -55,12 +55,12 @@ const FileUpload = () => {
               alt={`Image of ${index}`}
               width={300}
               height={300}
-              className="w-full h-full top-0 left-0 object-cover rounded-t-2xl "
+              className="top-0 left-0 object-cover w-full h-full rounded-t-2xl "
             />
           );
         })}
       </div>
-      </>
+    </>
   );
 };
 
