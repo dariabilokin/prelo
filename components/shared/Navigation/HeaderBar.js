@@ -42,7 +42,7 @@ const HeaderBar = () => {
             <nav className="bg-white">
               <div className="flex items-baseline ml-10 mr-20 space-x-4">
                 <Link
-                  href="/home"
+                  href="/"
                   className="px-3 py-2 text-lg font-medium tracking-wider text-black rounded-md cursor-pointer"
                 >
                   Home

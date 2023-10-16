@@ -17,11 +17,11 @@ export const getServerSideProps = async ({ req }) => {
 };
 
 const Items = ({ items }) => {
-  const itemsList = [items[0], items[0], items[0], items[0], items[0]];
-  console.log("items list", itemsList);
+  // const itemsList = [items[0], items[0], items[0], items[0], items[0]];
+  // console.log("items list", itemsList);
   return (
     <>
-      <div className="container py-20 bg-white">
+      {/* <div className="container py-20 bg-white">
         <h1 className="py-10 mb-10 text-5xl font-bold text-center text-danger">
           Items
         </h1>
@@ -33,7 +33,7 @@ const Items = ({ items }) => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
+import Layout from "../components/shared/Layout/Layout";
 
-const Login = (props) => {
+const Login = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="p-8 bg-white rounded-lg shadow-lg w-96 ">
@@ -46,5 +47,9 @@ const Login = (props) => {
     </div>
   );
 };
-
+Login.getLayout = (page) => {
+  return (
+    <Layout meta={{ title: "Login", description: "Login page" }}>{page}</Layout>
+  );
+};
 export default Login;

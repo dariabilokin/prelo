@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "lint": "npx eslint src test",
@@ -34,6 +34,7 @@
     "autoprefixer": "^10.4.14",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "gh-pages": "^6.0.0",
     "postcss": "^8.4.24",
     "prettier": "3.0.3",
     "tailwindcss": "^3.3.2"

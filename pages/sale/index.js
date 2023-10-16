@@ -1,21 +1,19 @@
 import Link from "next/link";
-import Navigation from "../../components/navigation/Navigation";
 import fetchSales from "../../lib/fetchSales";
+import Layout from "../../components/shared/Layout/Layout";
 const Sale = ({ sales }) => {
-  console.log("sales", sales);
+  console.log("sales ", sales);
   return (
     <>
-      <Navigation />
-
       <div className="container">
         <h3>New Sale is coming!</h3>
-        <div className="m-30 p-20"></div>
+        <div className="p-20 m-30"></div>
 
         <div className="grid grid-cols-3 gap-4">
           {sales &&
             sales?.map((sale) => (
               <Link key={sale.id} href={`/sale/${sale.id}`}>
-                <div className="bg-gray-200 p-4">
+                <div className="p-4 bg-gray-200">
                   <h4 className="text-xl font-bold">{sale.name}</h4>
                   <p>{sale.description}</p>
                   <span className="text-gray-500">Price: {sale.price}</span>
@@ -31,7 +29,14 @@ const Sale = ({ sales }) => {
 export const getServerSideProps = async () => {
   try {
     const sales = await fetchSales();
-
+    // const test = await prisma.sale.create({
+    //   data: {
+    //     createdAt: new Date(),
+    //     updatedAt: new Date(),
+    //     name: "Test sale",
+    //     userId: "6479458e0a90ac16dba925d4",
+    //   },
+    // });
     return {
       props: {
         sales,
@@ -46,4 +51,11 @@ export const getServerSideProps = async () => {
   }
 };
 
+Sale.getLayout = (page) => {
+  return (
+    <Layout meta={{ title: "Sale", description: "All sales page" }}>
+      {page}
+    </Layout>
+  );
+};
 export default Sale;

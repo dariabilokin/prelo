@@ -1,7 +1,5 @@
-import Head from "next/head";
 import Image from "next/image";
 import { Fragment } from "react";
-import Home from "../components/home";
 import { League_Spartan, Quicksand } from "next/font/google";
 import { Transition } from "@headlessui/react";
 import { useState } from "react";
