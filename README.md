@@ -1,2 +1,5 @@
-# movingout
-Web application for selling items when moving out.
+# Movingout
+
+Web application for selling used items. Technology stack: ReactJS, NextJS, TailwindCSS, MongoDB Arlas, Prisma, React Hook Form.
+
+Work in process.....
