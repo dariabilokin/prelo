@@ -1,6 +1,4 @@
-import Image from "next/image";
 import React from "react";
-import Card from "../../components/card/Card";
 import { getAllItems } from "../../lib/item";
 // import couchPic from "../public/images/couch.webp";
 

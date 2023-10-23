@@ -7,8 +7,8 @@ import {
   UserIcon,
   HeartIcon,
 } from "@heroicons/react/24/outline";
-import { dynamicSort } from "../../../lib/helpers";
-import { Bars3Icon } from "@heroicons/react/20/solid";
+// import { dynamicSort } from "../../../lib/helpers";
+// import { Bars3Icon } from "@heroicons/react/20/solid";
 
 const HeaderBar = () => {
   const categoryOptions = [
@@ -21,7 +21,6 @@ const HeaderBar = () => {
     { name: "textiles", label: "Textiles", value: "textiles" },
     { name: "outdoor", label: "Outdoor", value: "outdoor" },
   ];
-  console.log("sort ", categoryOptions.sort(dynamicSort("name")));
   return (
     <div className="sticky top-0 left-0 z-50">
       <header className="pt-3 pb-2 bg-white">

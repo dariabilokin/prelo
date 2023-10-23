@@ -1,5 +1,5 @@
 {
-  "extends": ["@salesforce/eslint-config-lwc/recommended"],
+  "extends": ["next/babel","next/core-web-vitals"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module"

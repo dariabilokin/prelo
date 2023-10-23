@@ -1,5 +1,5 @@
 import Head from "next/head";
-import HeaderBar from "../navigation/HeaderBar";
+import HeaderBar from "../Navigation/header";
 import Footer from "../Footer/Footer";
 
 const Layout = ({ children, meta, style }) => {
