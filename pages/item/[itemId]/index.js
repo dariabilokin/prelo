@@ -1,11 +1,7 @@
-import Image from "next/image";
 import React from "react";
-import { getAllItems } from "../../lib/item";
 
 export const getServerSideProps = async ({ req }) => {
-  const items = await getAllItems();
-
-  return { props: { users: updatedUsers } };
+  return { props: {} };
 };
 
 const ItemCard = ({ item }) => {
