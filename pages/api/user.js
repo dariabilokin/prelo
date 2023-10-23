@@ -6,8 +6,7 @@ import {
   getAllUsers,
   getUser,
   updateUser,
-} from "../../prisma/user";
-
+} from "../../lib/user";
 export default async function handle(req, res) {
   try {
     switch (req.method) {
