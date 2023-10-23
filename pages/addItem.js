@@ -39,9 +39,9 @@ const AddNewItem = ({ saleId }) => {
         setImageNames((prev) => [...prev, imageUpload.name]);
         const imageRef = ref(storage, `/images/${imageUpload.name + v4()}`);
         uploadBytes(imageRef, imageUpload).then((snapshot) => {
-          getDownloadURL(snapshot.ref).then((url) =>
-            setImageList((prev) => [...prev, url])
-          );
+          getDownloadURL(snapshot.ref).then((url) => {
+            setImageList((prev) => [...prev, url]);
+          });
         });
       });
     } catch (e) {
@@ -147,7 +147,11 @@ const AddNewItem = ({ saleId }) => {
             <ul className="mb-3">
               <h3>Uploaded Images:</h3>
               {imageNames.map((name, index) => {
-                return <li className="py-1 text-sm text-black">{name}</li>;
+                return (
+                  <li key={index} className="py-1 text-sm text-black">
+                    {name}
+                  </li>
+                );
               })}
             </ul>
           )}

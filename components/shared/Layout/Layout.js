@@ -11,7 +11,7 @@ const Layout = ({ children, meta, style }) => {
         <meta name="description" content={description} />
       </Head>
       <HeaderBar />
-      <main className={...style}>{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );

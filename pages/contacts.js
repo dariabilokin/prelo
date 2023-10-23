@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-
+import Layout from "../components/shared/Layout/Layout";
 const Contacts = () => {
   return (
     <Fragment>
