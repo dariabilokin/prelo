@@ -7,7 +7,6 @@ import {
   getUser,
   updateUser,
 } from "../../lib/user";
-
 export default async function handle(req, res) {
   try {
     switch (req.method) {
