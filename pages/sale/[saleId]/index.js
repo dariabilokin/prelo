@@ -1,19 +1,23 @@
 import AddNewItem from "../../addItem";
 import prisma from "../../../prisma/prisma";
-import Navigation from "../../../components/navigation/Navigation";
-import Card from "../../../components/card/Card";
-const NewSale = ({ sale, itemsList }) => {
+import { getAllItems } from "../../../lib/item";
+import Layout from "../../../components/shared/Layout/Layout";
+import Card from "../../../components/ui/Card/Card";
+
+const NewSale = ({ sale, items }) => {
+  console.log("itemsList", Object.values(items));
   return (
     <>
-      <Navigation />
-      <div className="container">
-        <div className="m-30 p-20">
-          <AddNewItem />
+      <div className="container pb-10">
+        <div className="p-20 m-30">
+          <AddNewItem saleId={sale.id} />
         </div>
-        <div className="px-7 sm:px-10 md:px-20">
-          <div className="flex flex-auto flex-row flex-wrap content-center items-center justify-center sm:gap-5 md:gap-20 xl:gap-30x gap-3">
-            {itemsList &&
-              itemsList?.map((item) => <Card item={item} key={item.id} />)}
+        <div className=" px-7 sm:px-10 md:px-20">
+          <div className="flex flex-row flex-wrap items-center content-center justify-center flex-auto gap-5 md:gap-10 ">
+            {items &&
+              Object.values(items)?.map((item) => (
+                <Card item={item} key={item.id} />
+              ))}
           </div>
         </div>
       </div>
@@ -21,9 +25,8 @@ const NewSale = ({ sale, itemsList }) => {
   );
 };
 
-export const getServerSideProps = async ({ query }) => {
-  const { saleId } = query;
-
+export const getServerSideProps = async ({ params }) => {
+  const { saleId } = params;
   try {
     const items = await getAllItems();
 
@@ -61,4 +64,14 @@ export const getServerSideProps = async ({ query }) => {
   }
 };
 
+NewSale.getLayout = (page) => {
+  return (
+    <Layout
+      style="bg-neutral-100"
+      meta={{ title: "NewSale", description: "NewSale page" }}
+    >
+      {page}
+    </Layout>
+  );
+};
 export default NewSale;

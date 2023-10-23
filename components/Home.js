@@ -1,20 +1,21 @@
 import Image from "next/image";
-import { Fragment } from "react";
-import { League_Spartan, Quicksand } from "next/font/google";
+import React, { Fragment, useState } from "react";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { storage } from "../lib/firebase";
+// import { getAllUsers } from "../lib/user";
+import { Quicksand } from "next/font/google";
 import { Transition } from "@headlessui/react";
-import { useState } from "react";
-import Layout from "../components/shared/Layout/Layout";
-
-const leagueSpartan = League_Spartan({ subsets: ["latin"] });
+import Layout from "./shared/Layout/Layout";
 const quicksand = Quicksand({ subsets: ["latin"] });
-const Homepage = () => {
+
+const Home = (props) => {
   const [isShowing, setIsShowing] = useState(true);
   return (
-    <div className={leagueSpartan.className}>
+    <Layout>
       <div className="w-screen h-5/6">
         <div className="bg-cover bg-bottom h-5/6 w-screen bg-no-repeat bg-[url(../public/images/bg1.jpg)]">
           <div className="flex flex-col items-center w-screen backdrop-brightness-50 bg-gray/70 h-5/6">
-            <div className="py-40 text-center pt-30 pb-14 ">
+            <div className="px-20 py-40 text-center ">
               {/* <div className="w-32 h-32"> */}
               <Transition
                 as={Fragment}
@@ -38,7 +39,7 @@ const Homepage = () => {
                 </p>
               </div>
 
-              <div className="py-20">
+              <div className="pt-10">
                 <button
                   onClick={() => {
                     setIsShowing(!isShowing);
@@ -103,20 +104,31 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-Homepage.getLayout = (page) => {
-  return (
-    <Layout meta={{ title: "Prelo", description: "Prelo application" }}>
-      {page}
     </Layout>
   );
 };
-export default Homepage;
-export const getServerSideProps = async () => {
-  return {
-    props: {},
-  };
+
+export const getServerSideProps = async ({ req }) => {
+  // const users = await getAllUsers();
+  // Convert the updatedAt and createdAt in each user to string
+  // Otherwise, Next.js will throw an error
+  // Not required if you are not using the date fields
+  // const updatedUsers = users.map((user) => ({
+  //   ...user,
+  //   updatedAt: user.updatedAt.toString(),
+  //   createdAt: user.createdAt.toString(),
+  // }));
+  // const imageListRef = ref(storage, "images/team/");
+  // const allTeam = await listAll(imageListRef)
+  // .then((response) => Promise.all(response.items.map(getDownloadURL)))
+  // .then((urls) => {
+  //   return urls;
+  // })
+  // .catch((error) => {
+  //   console.error('Error getting image URLs:', error);
+  //   return [];
+  // });
+  // return { props: { users: updatedUsers } };
 };
+
+export default Home;
