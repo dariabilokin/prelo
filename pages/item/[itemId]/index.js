@@ -2,7 +2,6 @@ import React from "react";
 
 import { getAllItems } from "../../../lib/item";
 
-
 export const getServerSideProps = async ({ req }) => {
   return { props: {} };
 };

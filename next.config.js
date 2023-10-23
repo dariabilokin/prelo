@@ -2,63 +2,66 @@
 
 const nextConfig = {
   reactStrictMode: true,
-    images: {
+  images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'firebasestorage.googleapis.com',
-        port: '',
-        pathname: '/image/upload/**',
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+        pathname: "/image/upload/**",
       },
       {
-        protocol: 'https',
-        hostname: 'firebasestorage.googleapis.com',
-        port: '',
-        pathname: '/image/team/**',
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+        pathname: "/image/team/**",
       },
       {
-        protocol: 'https',
-        hostname: 'moving-fb4bc.appspot.com',
-        port: '',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: "moving-fb4bc.appspot.com",
+        port: "",
+        pathname: "/images/**",
       },
       {
-        protocol: 'https',
-        hostname: 'source.unsplash.com',
-        port: '',
-        pathname: '**',
+        protocol: "https",
+        hostname: "source.unsplash.com",
+        port: "",
+        pathname: "**",
       },
     ],
-    domains: ["source.unsplash.com", "firebasestorage.googleapis.com", "storage.googleapis.com"],
+    domains: [
+      "source.unsplash.com",
+      "firebasestorage.googleapis.com",
+      "storage.googleapis.com",
+    ],
   },
 };
 
 module.exports = nextConfig;
 
+// images: {
+//   remotePatterns: [
+//     {
+//       protocol: 'https',
+//       hostname: 'firebasestorage.googleapis.com',
+//       port: '',
+//       pathname: '/image/upload/**',
+//     },
+//     {
+//       protocol: 'https',
+//       hostname: 'moving-fb4bc.appspot.com',
+//       port: '',
+//       pathname: '/images/**',
+//     },
+//     {
+//       protocol: 'https',
+//       hostname: 'source.unsplash.com',
+//       port: '',
+//       pathname: '**',
+//     },
+//   ],
+// },
 
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'firebasestorage.googleapis.com',
-  //       port: '',
-  //       pathname: '/image/upload/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'moving-fb4bc.appspot.com',
-  //       port: '',
-  //       pathname: '/images/**',
-  //     },
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'source.unsplash.com',
-  //       port: '',
-  //       pathname: '**',
-  //     },
-  //   ],
-  // },
-
-  //images: {
-  //   domains: ["source.unsplash.com", "firebasestorage.googleapis.com", "storage.googleapis.com"],
-  // },
+//images: {
+//   domains: ["source.unsplash.com", "firebasestorage.googleapis.com", "storage.googleapis.com"],
+// },
